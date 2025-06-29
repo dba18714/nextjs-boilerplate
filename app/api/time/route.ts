@@ -8,7 +8,7 @@ export async function GET(request: Request) {
     const s = Number(searchParams.get("s")) || 0;
 
     const start = Date.now();
-    // 延迟 s 毫秒
+    // 延迟 s 秒
     await new Promise((resolve) => setTimeout(resolve, s * 1000));
     const end = Date.now();
 
