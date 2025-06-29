@@ -1,4 +1,9 @@
+let counter = 0;
+
 export async function GET(request: Request) {
+    counter++;
+    console.log(`请求次数: ${counter}`);
+
     const { searchParams } = new URL(request.url);
     const s = Number(searchParams.get("s")) || 0;
   
@@ -9,5 +14,5 @@ export async function GET(request: Request) {
   
     const responseTime = end - start;
   
-    return Response.json({ responseTime });
+    return Response.json({ responseTime, counter });
   }
